@@ -4,82 +4,74 @@
     <meta charset="UTF-8" />
     <title>莒县学联</title>
     <meta name="description" content="My Page Description" />
+    
+    <!-- 1. 🟢 重新保留手机自适应的关键标签 -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
     <link rel="icon" href="content/image/xl.jpg" />
     <meta property="og:title" content="My Page Title" />
     <meta property="og:description" content="My Page Description" />
     <meta property="og:image" content="content/image/xl.jpg" />
     <link rel="stylesheet" href="assets/tobi.css" />
-    <link rel="stylesheet" href="assets/style.css" />
+    
+    <!-- 2. 🟢 加上随机版本号强制让 GitHub Pages 刷新 -->
+    <link rel="stylesheet" href="assets/style.css?v=refresh2026" />
     
     <style>
-        /* 🟢 新增/修改：强制放大手机端的应用图标 */
+        /* 手机端独享的微调样式 */
         @media (max-width: 768px) {
-            .app__logo-wrapper {
-                max-width: 120px !important;  /* 电脑端是250px，手机端这里从100px放大到150px */
-                max-height: 120px !important; /* 同步高度限制 */
-            }
-        }
-
-        /* 移动端下载按钮左对齐与间距微调 */
-        @media (max-width: 768px) {
+            /* 强制移动端下载按钮左对齐 */
             .app__buttons--mobile {
                 justify-content: flex-start !important; 
                 margin-top: 5px !important;
                 margin-bottom: 5px !important;
             }
-        }
-
-        /* 强行缩小各个板块（详情、介绍、伙伴）之间的电脑端间距 */
-        .app__section {
-            margin-bottom: 48px !important; 
-        }
-
-        /* 强行缩小各个板块之间的手机端间距 */
-        @media (max-width: 768px) {
-            .app__section {
-                margin-bottom: 16px !important; 
-            }
-            /* 修复应用详情截图在手机端上下内边距过大的问题 */
+            /* 缩小手机端详情截图部分的上下白边 */
             .app__screenshots-list {
-                padding: 12px 24px !important; 
+                padding: 12px 24px !important;
             }
         }
     </style>
 </head>
 <body>
     <main>
-        <header class="app__header container">
-            <div class="app__logo-wrapper">
+        <!-- 3. 🟢 通过 style 属性直接强制覆盖电脑和手机端的 header 底部间距 -->
+        <header class="app__header container" style="margin-bottom: 12px !important;">
+            
+            <!-- 4. 🟢 核心修改：直接在这里用内联样式把手机端的图标宽度锁死在 140px（原 CSS 中被强制限死了 100px） -->
+            <!-- 如果你觉得 140px 还不够大，可以把下面的 140px 改成 160px 甚至更大 -->
+            <div class="app__logo-wrapper" style="max-width: 120px !important; max-height: 120px !important; width: 120px !important; height: 120px !important;">
                 <img class="app__logo" src="content/image/xl.jpg" alt="莒县学联">
             </div>
+            
             <div class="app__infos">
                 <h1 class="app__name">莒县学联</h1>
                 <p class="app__description">一个自由的交流app</p>
                 
                 <!-- 桌面端下载按钮 -->
                 <div class="app__buttons app__buttons--desktop">
-                    <a href="https://juxian.us" class="app__button-play" target="_blank" title="莒县学联">
+                    <a href="https://xuelian.juxian.us/forum.php?mod=attachment&aid=N3w5MTg1ZGMwMHwxNzgzODM3MTI2fDF8MTg%3D" class="app__button-play" target="_blank" title="莒县学联">
                         <img src="assets/google-play-badge.png" alt="莒县学联">
                     </a>
-                    <a href="https://juxian.us" class="app__button-web" target="_blank" title="莒县学联">
+                    <a href="https://xuelian.juxian.us" class="app__button-web" target="_blank" title="莒县学联">
                         <img src="assets/pwa-badge.png" alt="莒县学联">
                     </a>
                 </div>
 
                 <!-- 移动端下载按钮 -->
                 <div class="app__buttons app__buttons--mobile">
-                    <a href="https://juxian.us" class="app__button-play" target="_blank" title="莒县学联">
+                    <a href="https://xuelian.juxian.us/forum.php?mod=attachment&aid=N3w5MTg1ZGMwMHwxNzgzODM3MTI2fDF8MTg%3D" class="app__button-play" target="_blank" title="莒县学联">
                         <img src="assets/google-play-badge.png" alt="莒县学联">
                     </a>
-                    <a href="https://juxian.us" class="app__button-web" target="_blank" title="莒县学联">
+                    <a href="https://xuelian.juxian.us/" class="app__button-web" target="_blank" title="莒县学联">
                         <img src="assets/pwa-badge.png" alt="莒县学联">
                     </a>
                 </div>
             </div>
         </header>
 
-        <section class="app__screenshots app__section">
+        <!-- 5. 🟢 核心修改：将所有 section 的 margin-bottom 都在标签上直接写死为 40px，彻底消灭大空隙 -->
+        <section class="app__screenshots app__section" style="margin-bottom: 40px !important;">
             <div class="container">
                 <h2 class="app__section-title">应用详情</h2>
             </div>
@@ -104,17 +96,17 @@
             </div>
         </section>
 
-        <section class="app__fulldescription app__section container">
+        <section class="app__fulldescription app__section container" style="margin-bottom: 40px !important;">
             <h2 class="app__section-title">应用介绍</h2>
             <div class="app__fulldescription-content">
                 <p>由莒县学生自主开发的交流app</p>
             </div>
         </section>
 
-        <section class="app__featured app__section container">
+        <section class="app__featured app__section container" style="margin-bottom: 40px !important;">
             <h2 class="app__section-title">合作伙伴</h2>
             <div class="app__featured-content">
-                <a href="https://github.com" target="_blank" class="app__featured-company">
+                <a href="https://xuelian.juxian.us" target="_blank" class="app__featured-company">
                     <img src="content/image/xx.jpg" class="app__featured-image">
                 </a>
             </div>
@@ -126,11 +118,11 @@
             <div class="footer__container">
                 <p class="footer__love">
                     <script>document.write('&copy;' + (new Date()).getFullYear());</script>
-                    <noscript>&copy;2026</noscript> All rights reserved &mdash; Powered by <a href="https://juxian.us" target="_blank" title="莒县学联">莒县学联</a>
+                    <noscript>&copy;2026</noscript> All rights reserved &mdash; Powered by <a href="https://xuelian.juxian.us" target="_blank" title="莒县学联">莒县学联</a>
                 </p>
                 <ul class="footer__links">
                     <li class="footer__link">
-                        <a href="https://juxian.us" target="_blank">莒县学联</a>
+                        <a href="https://xuelian.juxian.us" target="_blank">莒县学联</a>
                     </li>
                 </ul>
             </div>
