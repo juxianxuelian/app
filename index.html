@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html dir="auto" lang="en">
+<!DOCTYPE html>
+<html dir="auto" lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>莒县学联</title>
     <meta name="description" content="My Page Description" />
-    
-    <!-- 1. 🟢 重新保留手机自适应的关键标签 -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
     <link rel="icon" href="content/image/xl.jpg" />
     <meta property="og:title" content="My Page Title" />
     <meta property="og:description" content="My Page Description" />
     <meta property="og:image" content="content/image/xl.jpg" />
     <link rel="stylesheet" href="assets/tobi.css" />
     
-    <!-- 2. 🟢 加上随机版本号强制让 GitHub Pages 刷新 -->
-    <link rel="stylesheet" href="assets/style.css?v=refresh2026" />
+    <!-- 加上随机版本号强制刷新 GitHub Pages 缓存 -->
+    <link rel="stylesheet" href="assets/style.css?v=btn-under-logo" />
     
     <style>
-        /* 手机端独享的微调样式 */
+        /* 电脑端保持原样，无需大改 */
+        
+        /* 🟢 核心修改：针对手机端的全新布局重构 */
         @media (max-width: 768px) {
-            /* 强制移动端下载按钮左对齐 */
-            .app__buttons--mobile {
-                justify-content: flex-start !important; 
-                margin-top: 5px !important;
-                margin-bottom: 5px !important;
+            /* 让 header 内部的块元素允许自动换行，不再强行挤在一行 */
+            .app__header {
+                display: flex !important;
+                flex-wrap: wrap !important; 
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                margin-bottom: 24px !important;
             }
-            /* 缩小手机端详情截图部分的上下白边 */
+
+            /* 图标包裹层：强制限制宽度并保持与右边文字的间距 */
+            .app__logo-wrapper {
+                max-width: 120px !important;
+                max-height: 120px !important;
+                width: 120px !important;
+                height: 120px !important;
+                margin-right: 24px !important;
+                margin-bottom: 5px !important; /* 留出下方按钮的间距 */
+            }
+
+            /* 右侧文字包裹层：通过占满剩余宽度，使其和图标并排 */
+            .app__infos {
+                flex: 1 !important;
+                min-width: 180px !important;
+            }
+
+            /* 移动端专属下载按钮：利用 width: 100% 强行换行，精准掉落到图标的正下方 */
+            .mobile-btn-container {
+                display: flex !important;
+                width: 100% !important; /* 强制它另起一行，出现在最下方 */
+                justify-content: flex-start !important; /* 靠左对齐 */
+                margin-top: 10px !important;
+                padding-left: 0 !important;
+            }
+
+            .mobile-btn-container .app__buttons {
+                margin-left: 0 !important;
+                margin-bottom: 0 !important;
+            }
+        }
+
+        /* 强行缩小各个板块（详情、介绍、伙伴）之间的电脑和手机端底部间距 */
+        .app__section {
+            margin-bottom: 40px !important;
+        }
+        @media (max-width: 768px) {
+            .app__section {
+                margin-bottom: 24px !important;
+            }
             .app__screenshots-list {
                 padding: 12px 24px !important;
             }
