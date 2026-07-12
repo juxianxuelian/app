@@ -123,8 +123,8 @@ h1, h2 {
 @media (max-width: 768px) {
   .app__header {
     align-items: flex-start;
-    margin-top: 32px;
-    margin-bottom: 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
   }
 }
 .app__logo-wrapper {
@@ -253,7 +253,7 @@ html[dir=rtl] .app__logo-wrapper {
 }
 @media (max-width: 768px) {
   .app__section {
-    margin-bottom: 64px;
+    margin-bottom: 16px;
   }
 }
 .app__featured-content {
