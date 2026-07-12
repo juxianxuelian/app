@@ -12,14 +12,37 @@
     <link rel="stylesheet" href="assets/tobi.css" />
     <link rel="stylesheet" href="assets/style.css" />
     
-    <!-- 专门对付原有样式冲突的修正案 -->
     <style>
+        /* 🟢 新增/修改：强制放大手机端的应用图标 */
         @media (max-width: 768px) {
-            /* 强制覆盖原 CSS 的 justify-content: center，让移动端按钮与文字完美左对齐 */
+            .app__logo-wrapper {
+                max-width: 120px !important;  /* 电脑端是250px，手机端这里从100px放大到150px */
+                max-height: 120px !important; /* 同步高度限制 */
+            }
+        }
+
+        /* 移动端下载按钮左对齐与间距微调 */
+        @media (max-width: 768px) {
             .app__buttons--mobile {
                 justify-content: flex-start !important; 
-                margin-top: 5px !important; /* 给按钮和上方文字留出舒适的间距 */
-                margin-bottom: 5px !important; /* 缩减底部过大的留白 */
+                margin-top: 5px !important;
+                margin-bottom: 5px !important;
+            }
+        }
+
+        /* 强行缩小各个板块（详情、介绍、伙伴）之间的电脑端间距 */
+        .app__section {
+            margin-bottom: 48px !important; 
+        }
+
+        /* 强行缩小各个板块之间的手机端间距 */
+        @media (max-width: 768px) {
+            .app__section {
+                margin-bottom: 16px !important; 
+            }
+            /* 修复应用详情截图在手机端上下内边距过大的问题 */
+            .app__screenshots-list {
+                padding: 12px 24px !important; 
             }
         }
     </style>
@@ -34,7 +57,7 @@
                 <h1 class="app__name">莒县学联</h1>
                 <p class="app__description">一个自由的交流app</p>
                 
-                <!-- 桌面端下载按钮（当屏幕大于768px时显示，已在文字下方） -->
+                <!-- 桌面端下载按钮 -->
                 <div class="app__buttons app__buttons--desktop">
                     <a href="https://juxian.us" class="app__button-play" target="_blank" title="莒县学联">
                         <img src="assets/google-play-badge.png" alt="莒县学联">
@@ -44,7 +67,7 @@
                     </a>
                 </div>
 
-                <!-- 移动端下载按钮（已成功移入文字区内部，且去除了外层多余的 container 干扰） -->
+                <!-- 移动端下载按钮 -->
                 <div class="app__buttons app__buttons--mobile">
                     <a href="https://juxian.us" class="app__button-play" target="_blank" title="莒县学联">
                         <img src="assets/google-play-badge.png" alt="莒县学联">
